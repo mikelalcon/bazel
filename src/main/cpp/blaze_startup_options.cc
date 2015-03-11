@@ -121,19 +121,19 @@ string BlazeStartupOptions::GetJvm() {
     }
     exit(1);
   }
-  for (string rt_jar : {
-      // If the full JDK is installed
-      GetHostJavabase() + "/jre/lib/rt.jar",
-      // If just the JRE is installed
-      GetHostJavabase() + "/lib/rt.jar"
-  }) {
-    if (access(rt_jar.c_str(), R_OK) == 0) {
+//  for (string rt_jar : {
+//      // If the full JDK is installed
+//      GetHostJavabase() + "/jre/lib/rt.jar",
+//      // If just the JRE is installed
+//      GetHostJavabase() + "/lib/rt.jar"
+//  }) {
+//    if (access(rt_jar.c_str(), R_OK) == 0) {
       return java_program;
-    }
-  }
-  fprintf(stderr, "Problem with java installation: "
-      "couldn't find/access rt.jar in %s\n", GetHostJavabase().c_str());
-  exit(1);
+//    }
+//  }
+//  fprintf(stderr, "Problem with java installation: "
+//      "couldn't find/access rt.jar in %s\n", GetHostJavabase().c_str());
+//  exit(1);
 }
 
 BlazeStartupOptions::Architecture BlazeStartupOptions::GetBlazeArchitecture()

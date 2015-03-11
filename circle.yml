@@ -1,0 +1,11 @@
+machine:
+  java:
+    version: oraclejdk8
+
+test:
+  override:
+    - ./bootstrap_test.sh
+
+dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install libarchive-dev
